@@ -102,21 +102,26 @@ const Login: FC = () => {
   const location = useLocation();
   const isLogin = location.pathname === "/login";
   const signIn = async () => {
-    try {
-      const data = await registration(email, password);
-      dispatch(setUser(data as IUser[]));
-      dispatch(setIsAuth(true));
-    } catch (e: any) {
-      alert(e.response.data.message);
+    if (email.trim() !== '' && password.trim() !== '') {
+      try {
+        const data = await registration(email, password);
+        dispatch(setUser(data as IUser[]));
+        dispatch(setIsAuth(true));
+      } catch (e: any) {
+        alert(e.response.data.message);
+      }
     }
+    
   };
   const logIn = async () => {
-    try {
-      const data = await login(email, password);
-      dispatch(setUser(data as IUser[]));
-      dispatch(setIsAuth(true));
-    } catch (e: any) {
-      alert(e.response.data.message);
+    if (email.trim() !== '' && password.trim() !== '') {
+      try {
+        const data = await login(email, password);
+        dispatch(setUser(data as IUser[]));
+        dispatch(setIsAuth(true));
+      } catch (e: any) {
+        alert(e.response.data.message);
+      }
     }
   };
   // };

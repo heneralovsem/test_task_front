@@ -66,6 +66,11 @@ const StyledContentButton = styled.button`
   line-height: 34px;
   cursor: pointer;
   margin: 0 auto;
+
+  &:hover {
+    transition: 0.5s;
+    background-color:#172234;
+  }
 `;
 const StyledDealsWrapper = styled.div`
   width: 1280px;
