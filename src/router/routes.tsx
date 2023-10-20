@@ -1,7 +1,6 @@
 import { Navigate } from "react-router-dom";
 import LoginPage from '../pages/LoginPage'
 import HomePage from "../pages/HomePage";
-import DealsPage from "../pages/DealsPage";
 
 
 export const privateRoutes = [
