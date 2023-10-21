@@ -135,7 +135,7 @@ const StyledModalButton = styled.button`
 `;
 
 const Home: FC = () => {
-  const { data: buildings } = buildingsAPI.useFetchAllBuildingsQuery("");
+  const { data: buildings, isLoading } = buildingsAPI.useFetchAllBuildingsQuery("");
   const [createBuilding, {}] = buildingsAPI.useCreateBuildingMutation();
   const { isAuth } = useAppSelector((state) => state.userReducer);
   const dealsRef = useRef<HTMLDivElement | null>(null);
@@ -199,6 +199,7 @@ const Home: FC = () => {
       <StyledDealsWrapper ref={dealsRef}>
         <StyledDealsTitle>Open Deals</StyledDealsTitle>
         <StyledDealsContent>
+          {isLoading && <h1>Loading...</h1>}
           {buildings?.map((building) => (
             <BuildingItem key={building.id} building={building} />
           ))}
